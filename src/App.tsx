@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import './pages/homepage'
 import HomePage from './pages/homepage'
+import ChatGpt from './pages/chatgpt';
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -33,7 +32,15 @@ function App() {
       Simple React Typescript Tailwind Sample
     </h1> */}
     
-<HomePage />
+    <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/code-genx" element={< ChatGpt/>} />
+                <Route path="/doc-sumex" element={<ChatGpt />} />
+                <Route path="/web-intx" element={<ChatGpt />} />
+                <Route path="/gen-query" element={<ChatGpt />} />
+            </Routes>
+        </Router>
     
     </>
   )

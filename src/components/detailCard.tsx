@@ -1,11 +1,17 @@
 import { FC } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 interface DetailCardProps {
     name: string;
     title: string;
     img: string;
+    route : string  ;
 }
-const DetailCard :FC<DetailCardProps> =  function detailCard({ name , title  , img} ) {
+const DetailCard :FC<DetailCardProps> =  function detailCard({ name , title  , img , route } ) {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        console.log('Button clicked');
+        navigate(route);
+    }
     return (
         <div className="py-8 px-8 max-w-sm mx-auto space-y-2 bg-white rounded-xl shadow-lg sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:gap-x-6">
             <img className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0" src={img}  alt="Image" />
@@ -18,7 +24,7 @@ const DetailCard :FC<DetailCardProps> =  function detailCard({ name , title  , i
                         {title}
                     </p>
                 </div>
-                <button className="px-4 py-1 text-sm text-red-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">Click</button>
+                <button className="px-4 py-1 text-sm text-red-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"  onClick={handleClick} >Click</button>
             </div>
         </div>
     );
