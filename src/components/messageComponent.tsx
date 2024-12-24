@@ -14,6 +14,27 @@ const MessageDisplay: FC<{ messages: Message[] }> = ({ messages }) => {
         bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
 
+    const formatCode = (text: string) => {
+        if (text.trim().startsWith('```') && text.trim().endsWith('```')) {
+            const [, ...codeLines] = text.trim().slice(3, -3).split('\n');
+            const formattedCode = codeLines.join('\n');
+            return (
+                <div className="relative">
+                    <pre className="bg-gray-200 dark:bg-gray-800 p-4 rounded-md">
+                        <code>{formattedCode}</code>
+                    </pre>
+                    <button
+                        className="absolute top-2 right-2 text-sm text-blue-500"
+                        onClick={() => navigator.clipboard.writeText(formattedCode)}
+                    >
+                        Copy Code
+                    </button>
+                </div>
+            );
+        }
+        return text;
+    };
+
     return (
         <div className="flex-1 overflow-y-auto p-6 bg-gray-100 dark:bg-gray-900 space-y-4">
             {messages.map((message) => (
@@ -28,7 +49,7 @@ const MessageDisplay: FC<{ messages: Message[] }> = ({ messages }) => {
                                 : 'bg-gray-300 text-black dark:bg-gray-700 dark:text-white rounded-bl-none'
                         }`}
                     >
-                        {message.text}
+                        {formatCode(message.text)}
                     </div>
                 </div>
             ))}
@@ -36,9 +57,5 @@ const MessageDisplay: FC<{ messages: Message[] }> = ({ messages }) => {
         </div>
     );
 };
-
-
-
-
 
 export default MessageDisplay;

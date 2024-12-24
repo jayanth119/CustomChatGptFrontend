@@ -35,7 +35,7 @@ function App() {
     <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/code-genx" element={< ChatGpt/>} />
+                <Route path="/code-genx" element={< ChatGpt />} />
                 <Route path="/doc-sumex" element={<ChatGpt />} />
                 <Route path="/web-intx" element={<ChatGpt />} />
                 <Route path="/gen-query" element={<ChatGpt />} />
