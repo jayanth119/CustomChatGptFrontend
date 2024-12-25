@@ -3,7 +3,7 @@ import DetailCard from '../components/detailCard';
 
 const HomePage: FC = () => {
     return (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="w-screen h-screen grid grid-cols-1 content-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <DetailCard
                 name={'Code Genx'}
                 title={'Code Generation Task'}
@@ -25,7 +25,7 @@ const HomePage: FC = () => {
             <DetailCard
                 name={'Gen Query'}
                 title={'General Queries Task'}
-                img={'./src/assets/codeGenx.png'}
+                img={'./src/assets/images.jpeg'}
                 route={'/gen-query'}
             />
         </div>

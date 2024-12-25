@@ -41,6 +41,7 @@ const ChatGpt: FC = () => {
                 { prompt: text },
                 { headers: { 'Content-Type': 'application/json' } }
             );
+            console.log('Response:', response.data);
             return response.data.response || 'No response from server';
         } catch (error) {
             console.error('Error:', error);
@@ -72,11 +73,11 @@ const ChatGpt: FC = () => {
     );
 
     return (
-        <div className="flex flex-col h-screen">
+        <div className="w-full h-full flex flex-col">
             <h1 className="text-3xl font-bold text-center text-blue-600 p-4">
                 Chat with Gemini - {taskType}
             </h1>
-            <div className="flex flex-col h-full overflow-hidden">
+            <div className="w-full h-full flex flex-col overflow-hidden">
                 <div className="flex-grow overflow-y-auto p-4">
                     <MessageDisplay messages={messages} />
                 </div>
@@ -85,6 +86,7 @@ const ChatGpt: FC = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 

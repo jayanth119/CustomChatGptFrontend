@@ -19,7 +19,7 @@ const MessageDisplay: FC<{ messages: Message[] }> = ({ messages }) => {
             const [, ...codeLines] = text.trim().slice(3, -3).split('\n');
             const formattedCode = codeLines.join('\n');
             return (
-                <div className="relative">
+                <div className="relative w-full ">
                     <pre className="bg-gray-200 dark:bg-gray-800 p-4 rounded-md">
                         <code>{formattedCode}</code>
                     </pre>
@@ -43,7 +43,7 @@ const MessageDisplay: FC<{ messages: Message[] }> = ({ messages }) => {
                     className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
                 >
                     <div
-                        className={`max-w-lg p-4 rounded-lg shadow-md break-words ${
+                        className={`max-w-3xl p-4 rounded-lg shadow-md break-words ${
                             message.isUser
                                 ? 'bg-blue-500 text-white rounded-br-none'
                                 : 'bg-gray-300 text-black dark:bg-gray-700 dark:text-white rounded-bl-none'
