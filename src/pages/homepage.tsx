@@ -28,6 +28,12 @@ const HomePage: FC = () => {
                 img={'./src/assets/images.jpeg'}
                 route={'/gen-query'}
             />
+            <DetailCard
+                name={'Summerize  Query'}
+                title={'Summerization  Queries Task'}
+                img={'./src/assets/images.jpeg'}
+                route={'/textsummarize'}
+            />
         </div>
     );
 };

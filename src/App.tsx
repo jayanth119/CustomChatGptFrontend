@@ -16,6 +16,7 @@ function App() {
                 <Route path="/doc-sumex" element={<FilePage />} />
                 <Route path="/web-intx" element={<ChatGpt />} />
                 <Route path="/gen-query" element={<ChatGpt />} />
+                <Route path="/textsummarize" element={<ChatGpt />} />
             </Routes>
         </Router>
     
